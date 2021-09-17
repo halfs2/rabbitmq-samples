@@ -4,10 +4,12 @@
 - Docker
 
 ## How to run
-- Create RabbitMQ in docker
+- Create RabbitMQ in docker 
 ```sh
 docker run -d --hostname my-rabbit --name some-rabbit -p 15672:15672 -p 5672:5672 rabbitmq:management
 ```
+> as the image we installed has the management tag, you can access a web dashboard to view your queues, messages, connections etc. access here http://localhost:15672
+
 - Hello World
 ```sh
 ## first run receive
