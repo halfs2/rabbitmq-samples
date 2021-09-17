@@ -1,7 +1,6 @@
-﻿using HelloBus;
-using RabbitMQ.Client;
+﻿using RabbitBus;
 using System;
-using System.Text;
+
 
 namespace Send
 {
@@ -11,9 +10,7 @@ namespace Send
         {
             var bus = new Bus(hostName: "localhost", port: 5672);
 
-            bool run = true;
-
-            while (run)
+            while (true)
             {
                 Console.WriteLine("type CTRL+C to exit.");
                 Console.WriteLine("type your message: ");

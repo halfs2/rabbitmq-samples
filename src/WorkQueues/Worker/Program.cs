@@ -1,16 +1,16 @@
-﻿using RabbitBus;
-using System;
+﻿using System;
+using RabbitBus;
 
-namespace Receive
+namespace Worker
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("receiving messages");
             var bus = new Bus(hostName: "localhost", port: 5672);
 
-            bus.Receive("hello");
+            bus.Receive(queue: "task_queue", durable: true);
         }
+
     }
 }
