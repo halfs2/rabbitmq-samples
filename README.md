@@ -31,3 +31,18 @@ dotnet run --project NewTask/NewTask.csproj "task 1 ."
 dotnet run --project NewTask/NewTask.csproj "task 2 .."
 dotnet run --project NewTask/NewTask.csproj "task 3 ..."
 ```
+
+- Publish Subscribe
+```sh
+## first run two or more workers
+cd YOUR_PATH_HERE\rabbitmq-samples-main\src\PublishSubscribe
+## this project save messages in to file logs_from_rabbit.log
+dotnet run --project ReceiveLogs/ReceiveLogs.csproj > logs_from_rabbit.log
+## this project print messages in console
+dotnet run --project ReceiveLogs/ReceiveLogs.csproj
+
+## now run a new task passing a message as a parameter. Each dot equals 1 second of processing.
+dotnet run --project EmitLog/EmitLog.csproj "log # 1"
+dotnet run --project EmitLog/EmitLog.csproj "log # 2"
+dotnet run --project EmitLog/EmitLog.csproj "log # 3"
+```
