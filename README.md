@@ -41,8 +41,22 @@ dotnet run --project ReceiveLogs/ReceiveLogs.csproj > logs_from_rabbit.log
 ## this project print messages in console
 dotnet run --project ReceiveLogs/ReceiveLogs.csproj
 
-## now run a new task passing a message as a parameter. Each dot equals 1 second of processing.
+## now run a emitlog
 dotnet run --project EmitLog/EmitLog.csproj "log # 1"
 dotnet run --project EmitLog/EmitLog.csproj "log # 2"
 dotnet run --project EmitLog/EmitLog.csproj "log # 3"
+```
+
+- Routing
+```sh
+cd YOUR_PATH_HERE\rabbitmq-samples-main\src\Routing
+## this project save messages in to file logs_from_rabbit.log
+dotnet run --project ReceiveLogsDirect/ReceiveLogsDirect.csproj error warning > logs_from_rabbit.log
+## this project print messages in console
+dotnet run --project ReceiveLogsDirect/ReceiveLogsDirect.csproj info
+
+## now run a emitlog with level error in parameter
+dotnet run --project EmitLogDirect/EmitLogDirect.csproj error "this error will be saved to a file"
+dotnet run --project EmitLogDirect/EmitLogDirect.csproj warning "this warning will be saved to a file"
+dotnet run --project EmitLogDirect/EmitLogDirect.csproj info "this message will be print to a console"
 ```
