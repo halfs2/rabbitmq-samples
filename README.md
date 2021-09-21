@@ -60,3 +60,19 @@ dotnet run --project EmitLogDirect/EmitLogDirect.csproj error "this error will b
 dotnet run --project EmitLogDirect/EmitLogDirect.csproj warning "this warning will be saved to a file"
 dotnet run --project EmitLogDirect/EmitLogDirect.csproj info "this message will be print to a console"
 ```
+
+- Topics
+```sh
+cd YOUR_PATH_HERE\rabbitmq-samples-main\src\Topics
+## Consumers
+dotnet run --project ReceiveLogsTopic/ReceiveLogsTopic.csproj "#"
+
+dotnet run --project ReceiveLogsTopic/ReceiveLogsTopic.csproj "kern.*"
+
+dotnet run --project ReceiveLogsTopic/ReceiveLogsTopic.csproj "*.critical"
+
+dotnet run --project ReceiveLogsTopic/ReceiveLogsTopic.csproj "kern.*" "*.critical"
+
+## Publisher
+dotnet run --project EmitLogTopic/EmitLogTopic.csproj "kern.critical" "A critical kernel error"
+```
