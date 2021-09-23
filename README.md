@@ -76,3 +76,16 @@ dotnet run --project ReceiveLogsTopic/ReceiveLogsTopic.csproj "kern.*" "*.critic
 ## Publisher
 dotnet run --project EmitLogTopic/EmitLogTopic.csproj "kern.critical" "A critical kernel error"
 ```
+
+- RPC
+```sh
+cd YOUR_PATH_HERE\rabbitmq-samples-main\src\RPC
+## RPC Server
+dotnet run --project RPCServer/RPCServer.csproj
+
+## RPC client
+dotnet run --project RpcClient/RpcClient.csproj
+dotnet run --project RpcClient/RpcClient.csproj "10"
+dotnet run --project RpcClient/RpcClient.csproj "20"
+dotnet run --project RpcClient/RpcClient.csproj "40"
+```
